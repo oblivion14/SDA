@@ -1,6 +1,7 @@
 package com.pineone.sda.controller;
 
 import com.pineone.sda.service.DataService;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,10 +19,11 @@ public class SDAController {
     @Autowired
     DataService dataService;
 
+    @ResponseBody
     @RequestMapping(value = "/context/{name}", method = RequestMethod.GET )
-    public @ResponseBody String RecevieData(@PathVariable String name){
+    public JSONObject RecevieData(@PathVariable String name){
 
-        return dataService.ContextAwareness(name).toJSONString();
+        return dataService.ContextAwareness(name);
     }
 
 }
