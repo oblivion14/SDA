@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="SDA:war exploded">
+  <artifact type="exploded-war" name="SDA:war exploded">
     <output-path>$PROJECT_DIR$/target/SDA</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">

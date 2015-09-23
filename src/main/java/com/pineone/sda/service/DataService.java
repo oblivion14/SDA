@@ -2,6 +2,7 @@ package com.pineone.sda.service;
 
 
 import com.pineone.sda.domain.ContextModel;
+import com.pineone.sda.domain.DeviceControlMessage;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -23,6 +24,11 @@ public class DataService {
     String AriconContext = "AIRCON";
     String CONTEXTMODELNAME = "ContextModelName";
     String DOMIANID = "DomianID";
+
+    String DCMURI ="_uri";
+    String DCMCOMMAND = "_command";
+    String DCMCNF = "cnf";
+    String DCMCON = "con";
 
     public JSONObject parsingData(ContextModel contextModel){
         JSONObject object = new JSONObject();
@@ -64,6 +70,15 @@ public class DataService {
             e.printStackTrace();
         }
 
+    }
+
+    public JSONObject parsingDeviceControlMessageData(DeviceControlMessage deviceControlMessage) {
+        JSONObject object = new JSONObject();
+        object.put(DCMURI, deviceControlMessage.get_uri());
+        object.put(DCMCOMMAND, deviceControlMessage.get_command());
+        object.put(DCMCNF, deviceControlMessage.getCnf());
+        object.put(DCMCON, deviceControlMessage.getCon());
+        return object;
     }
 
 
